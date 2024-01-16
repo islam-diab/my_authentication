@@ -25,6 +25,7 @@ class AppTextFormField extends StatelessWidget {
       // validator: (value) {
       //   return validator(value);
       // },
+      keyboardType: TextInputType.emailAddress,
       obscureText: isObscureText ?? false,
       style: TextStyles.font14Medium,
       decoration: InputDecoration(

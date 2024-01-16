@@ -8,8 +8,8 @@ class ContianerwithOpacity extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 447.w,
-      height: 803.h,
+      // width: 447.w,
+      height: MediaQuery.of(context).size.height - 260.h,
       decoration: ShapeDecoration(
         gradient: LinearGradient(
           begin: const Alignment(.2, -0.34),
@@ -20,9 +20,10 @@ class ContianerwithOpacity extends StatelessWidget {
             const Color(0xFFB379DF).withOpacity(0.2)
           ],
         ),
+        // ignore: prefer_const_constructors
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(59),
-        ),
+            borderRadius: const BorderRadius.only(
+                topLeft: Radius.circular(60), topRight: Radius.circular(60))),
       ),
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 30),

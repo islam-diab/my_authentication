@@ -18,7 +18,7 @@ class UserAndPasswoed extends StatelessWidget {
             style: TextStyles.font14Medium,
           ),
         ),
-        verticalSpace(10),
+        verticalSpace(10.h),
         const AppTextFormField(
           hintText: 'Username',
           prefixIcon: Icon(Icons.person_outline),
@@ -33,6 +33,7 @@ class UserAndPasswoed extends StatelessWidget {
         ),
         verticalSpace(10.h),
         const AppTextFormField(
+          isObscureText: true,
           hintText: 'passwored',
           prefixIcon: Icon(Icons.key_outlined),
         ),

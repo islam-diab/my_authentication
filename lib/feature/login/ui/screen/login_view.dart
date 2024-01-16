@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:my_authentication/feature/login/ui/widget/container_info.dart';
-import 'package:my_authentication/feature/login/ui/widget/top_scrern.dart';
 
 class LoginView extends StatelessWidget {
   const LoginView({super.key});
@@ -10,27 +9,22 @@ class LoginView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SingleChildScrollView(
-        child: Column(
-          children: [
-            Stack(
-              children: [
-                Container(
-                  color: Colors.black,
-                  height: 932.h,
-                ),
-                const TopScreen(),
-                Positioned(
-                  top: 220,
-                  left: 1,
-                  right: 1,
-                  child: Image.asset(
+        child: Container(
+          color: Colors.black,
+          // height: 932.h,
+          child: Column(
+            children: [
+              Image.asset('assets/image/login.png'),
+              Stack(
+                children: [
+                  Image.asset(
                     'assets/image/2.png',
                   ),
-                ),
-                const ContainerInfo(),
-              ],
-            ),
-          ],
+                  const ContainerInfo(),
+                ],
+              ),
+            ],
+          ),
         ),
       ),
     );
