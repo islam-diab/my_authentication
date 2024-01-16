@@ -1,22 +1,24 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+
 import 'package:my_authentication/core/theming/text_styles.dart';
 
 class AppTextFormField extends StatelessWidget {
   final String? hintText;
   final Widget? prefixIcon;
   final bool? isObscureText;
+  final Function(String)? onChanged;
   // final Function(String?) validator;
   // final TextEditingController controller;
 
   const AppTextFormField({
-    super.key,
+    Key? key,
     required this.hintText,
     this.prefixIcon,
     this.isObscureText,
-    // required this.validator,
-    // required this.controller,
-  });
+    this.onChanged,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -25,6 +27,7 @@ class AppTextFormField extends StatelessWidget {
       // validator: (value) {
       //   return validator(value);
       // },
+      onChanged: onChanged,
       keyboardType: TextInputType.emailAddress,
       obscureText: isObscureText ?? false,
       style: TextStyles.font14Medium,

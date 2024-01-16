@@ -3,12 +3,13 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:my_authentication/core/theming/text_styles.dart';
 
 class CustomTextButtom extends StatelessWidget {
-  const CustomTextButtom({super.key});
+  const CustomTextButtom({super.key, this.onTap});
+  final Function()? onTap;
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {},
+      onTap: onTap,
       child: Container(
         padding: EdgeInsets.zero,
         height: 55.h,
@@ -24,7 +25,7 @@ class CustomTextButtom extends StatelessWidget {
         ),
         child: Center(
             child: Text(
-          'Lodin',
+          'Login',
           style: TextStyles.font18Medium,
         )),
       ),

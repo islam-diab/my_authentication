@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:my_authentication/feature/login/ui/widget/container_info.dart';
 
 class LoginView extends StatelessWidget {
@@ -11,7 +10,6 @@ class LoginView extends StatelessWidget {
       body: SingleChildScrollView(
         child: Container(
           color: Colors.black,
-          // height: 932.h,
           child: Column(
             children: [
               Image.asset('assets/image/login.png'),
