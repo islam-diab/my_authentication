@@ -1,8 +1,9 @@
 # my_authentication
 
 A new Flutter project.
-
+![Screenshot_1705423219](https://github.com/islam-diab/my_authentication/assets/50031800/3047543f-1734-4cb6-b296-d5bdc5494de6)
 ## Getting Started
+
 
 This project is a starting point for a Flutter application.
 
