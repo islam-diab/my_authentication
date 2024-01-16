@@ -36,6 +36,14 @@ class UserAndPasswoed extends StatelessWidget {
           hintText: 'passwored',
           prefixIcon: Icon(Icons.key_outlined),
         ),
+        verticalSpace(10.h),
+        Align(
+          alignment: Alignment.centerRight,
+          child: Text(
+            'Forgot Password?',
+            style: TextStyles.font14Medium,
+          ),
+        )
       ],
     );
   }

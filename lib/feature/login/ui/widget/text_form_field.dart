@@ -36,7 +36,7 @@ class AppTextFormField extends StatelessWidget {
         prefixIcon: prefixIcon,
         contentPadding: EdgeInsets.symmetric(
           horizontal: 20.w,
-          vertical: 18.h,
+          vertical: 20.h,
         ),
         focusedBorder: OutlineInputBorder(
           borderSide: BorderSide(

@@ -14,7 +14,8 @@ class LoginView extends StatelessWidget {
           children: [
             Stack(
               children: [
-                SizedBox(
+                Container(
+                  color: Colors.black,
                   height: 932.h,
                 ),
                 const TopScreen(),
