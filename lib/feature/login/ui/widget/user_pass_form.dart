@@ -1,21 +1,20 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:my_authentication/core/helper/spaser.dart';
+import 'package:my_authentication/core/helper/spase.dart';
 import 'package:my_authentication/core/theming/text_styles.dart';
 import 'package:my_authentication/feature/login/ui/widget/text_form_field.dart';
-import 'package:firebase_auth/firebase_auth.dart';
-import 'package:my_authentication/feature/test_fire_base/test_fire_base.dart';
 
-import 'custom_text_buttom.dart';
+import 'custom_text_bottom.dart';
 
-class UserAndPasswoed extends StatefulWidget {
-  const UserAndPasswoed({super.key});
+class UserAndPassword extends StatefulWidget {
+  const UserAndPassword({super.key});
 
   @override
-  State<UserAndPasswoed> createState() => _UserAndPasswoedState();
+  State<UserAndPassword> createState() => _UserAndPasswordState();
 }
 
-class _UserAndPasswoedState extends State<UserAndPasswoed> {
+class _UserAndPasswordState extends State<UserAndPassword> {
   String? emailAddress, password;
   login() async {
     try {
@@ -25,11 +24,6 @@ class _UserAndPasswoedState extends State<UserAndPasswoed> {
       );
       if (credential.user != null) {
         // ignore: use_build_context_synchronously
-        Navigator.pushAndRemoveUntil(
-          context,
-          MaterialPageRoute(builder: (context) => const TestFireBase()),
-          (Route<dynamic> route) => false,
-        );
       }
     } on FirebaseAuthException catch (e) {
       if (e.code == 'user-not-found') {
@@ -54,8 +48,8 @@ class _UserAndPasswoedState extends State<UserAndPasswoed> {
           ),
         ),
         verticalSpace(10.h),
-         AppTextFormField(
-          onChanged: (p0) => emailAddress=p0,
+        AppTextFormField(
+          onChanged: (p0) => emailAddress = p0,
           hintText: 'Username',
           prefixIcon: const Icon(Icons.person_outline),
         ),
@@ -68,7 +62,7 @@ class _UserAndPasswoedState extends State<UserAndPasswoed> {
           ),
         ),
         verticalSpace(10.h),
-         AppTextFormField(
+        AppTextFormField(
           onChanged: (p0) => password = p0,
           isObscureText: true,
           hintText: 'passwored',
@@ -83,9 +77,9 @@ class _UserAndPasswoedState extends State<UserAndPasswoed> {
           ),
         ),
         verticalSpace(30.h),
-           CustomTextButtom(
-            onTap: login,
-           ),
+        CustomTextBottom(
+          onTap: login,
+        ),
       ],
     );
   }

@@ -4,6 +4,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 SizedBox horizontalSpace(double weight) => SizedBox(
       width: weight.w,
     );
-SizedBox verticalSpace(double hight) => SizedBox(
-      height: hight.h,
+SizedBox verticalSpace(double height) => SizedBox(
+      height: height.h,
     );

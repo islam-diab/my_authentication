@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:my_authentication/core/theming/color.dart';
 import 'package:my_authentication/core/theming/text_styles.dart';
 
-class CustomTextButtom extends StatelessWidget {
-  const CustomTextButtom({super.key, this.onTap});
+class CustomTextBottom extends StatelessWidget {
+  const CustomTextBottom({super.key, this.onTap});
   final Function()? onTap;
 
   @override
@@ -17,7 +18,7 @@ class CustomTextButtom extends StatelessWidget {
           gradient: const LinearGradient(
             begin: Alignment(1.00, -0.01),
             end: Alignment(-1, 0.01),
-            colors: [Color(0xFF9C3FE4), Color(0xFFC65647)],
+            colors: [Color(0xFF9C3FE4), AppColor.primaryColor],
           ),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(15),

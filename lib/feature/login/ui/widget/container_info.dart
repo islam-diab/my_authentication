@@ -1,28 +1,32 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:my_authentication/core/helper/spaser.dart';
-import 'package:my_authentication/feature/login/ui/widget/another_signup.dart';
-import 'package:my_authentication/feature/login/ui/widget/contianer_with_opacity.dart';
-import 'package:my_authentication/feature/login/ui/widget/signup_from_login.dart';
+import 'package:my_authentication/core/helper/spase.dart';
+import 'package:my_authentication/core/theming/text_styles.dart';
 import 'package:my_authentication/feature/login/ui/widget/user_pass_form.dart';
 
-import 'welcome_text.dart';
+import 'container_with_opacity.dart';
+import 'logo_of_another_signup.dart';
 
 class ContainerInfo extends StatelessWidget {
   const ContainerInfo({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return ContianerwithOpacity(
+    return ContainerWithOpacity(
       child: Column(
         children: [
-          const WelcomeText(),
+          Text(
+            'Welcome Back!',
+            style: TextStyles.font40SemiBold,
+          ),
+          Text(
+            'welcome back we missed you',
+            style: TextStyles.font14Medium,
+          ),
           verticalSpace(30.h),
-          const UserAndPasswoed(),
+          const UserAndPassword(),
           verticalSpace(30.h),
-          const AnotherSignup(),
-          verticalSpace(20.h),
-          const SiginUpFromLogin()
+          const LogoOfAnotherSignUp(),
         ],
       ),
     );
