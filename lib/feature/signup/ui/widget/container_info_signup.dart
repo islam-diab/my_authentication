@@ -3,14 +3,14 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:my_authentication/core/helper/extensions.dart';
 import 'package:my_authentication/core/helper/spase.dart';
 import 'package:my_authentication/core/theming/text_styles.dart';
-import 'package:my_authentication/feature/login/ui/widget/user_pass_form.dart';
+import 'package:my_authentication/feature/signup/ui/widget/signup_form.dart';
 
 import '../../../../core/routing/routes.dart';
 import '../../../../core/widget/auth/container_with_opacity.dart';
 import '../../../../core/widget/auth/logo_of_another_signup.dart';
 
-class ContainerInfo extends StatelessWidget {
-  const ContainerInfo({super.key});
+class ContainerInfoForSignup extends StatelessWidget {
+  const ContainerInfoForSignup({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -18,19 +18,21 @@ class ContainerInfo extends StatelessWidget {
       child: Column(
         children: [
           Text(
-            'Welcome Back!',
+            'Get Started Free',
             style: TextStyles.font40SemiBold,
           ),
           Text(
-            'welcome back we missed you',
+            ' Free Forever. No Credit Card Needed',
             style: TextStyles.font14Medium,
           ),
           verticalSpace(30.h),
-          const UserAndPassword(),
+          const SignupForm(),
           verticalSpace(30.h),
           LogoOfAnotherSignUp(
-            text: 'Sing Up',
-            onPressed: () => context.pushNamed(Routes.signUpScreen),
+            text: 'Login',
+            onPressed: () {
+              context.pushNamed(Routes.loginScreen);
+            },
           ),
         ],
       ),

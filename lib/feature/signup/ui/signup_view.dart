@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:my_authentication/feature/login/ui/widget/container_info.dart';
+import 'package:my_authentication/feature/signup/ui/widget/container_info_signup.dart';
 
-class LoginView extends StatelessWidget {
-  const LoginView({super.key});
+class SignupView extends StatelessWidget {
+  const SignupView({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -12,13 +12,13 @@ class LoginView extends StatelessWidget {
           color: Colors.black,
           child: Column(
             children: [
-              Image.asset('assets/image/login.png'),
+              Image.asset('assets/image/logo2.png'),
               Stack(
                 children: [
                   Image.asset(
                     'assets/image/2.png',
                   ),
-                  const ContainerInfo(),
+                  const ContainerInfoForSignup(),
                 ],
               ),
             ],

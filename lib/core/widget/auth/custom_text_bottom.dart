@@ -1,14 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:my_authentication/core/theming/color.dart';
 import 'package:my_authentication/core/theming/text_styles.dart';
 
-class CustomTextButtom extends StatelessWidget {
-  const CustomTextButtom({super.key});
+class CustomTextBottom extends StatelessWidget {
+  const CustomTextBottom({super.key, this.onTap, required this.text});
+  final Function()? onTap;
+  final String text;
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {},
+      onTap: onTap,
       child: Container(
         padding: EdgeInsets.zero,
         height: 55.h,
@@ -16,7 +19,7 @@ class CustomTextButtom extends StatelessWidget {
           gradient: const LinearGradient(
             begin: Alignment(1.00, -0.01),
             end: Alignment(-1, 0.01),
-            colors: [Color(0xFF9C3FE4), Color(0xFFC65647)],
+            colors: [Color(0xFF9C3FE4), AppColor.primaryColor],
           ),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(15),
@@ -24,7 +27,7 @@ class CustomTextButtom extends StatelessWidget {
         ),
         child: Center(
             child: Text(
-          'Lodin',
+          text,
           style: TextStyles.font18Medium,
         )),
       ),
