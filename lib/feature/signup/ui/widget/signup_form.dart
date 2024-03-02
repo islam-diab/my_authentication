@@ -1,39 +1,36 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:my_authentication/core/helper/extensions.dart';
 import 'package:my_authentication/core/helper/spase.dart';
-import 'package:my_authentication/core/routing/routes.dart';
 import 'package:my_authentication/core/theming/text_styles.dart';
 import 'package:my_authentication/core/widget/auth/text_form_field.dart';
 
 import '../../../../core/widget/auth/custom_text_bottom.dart';
 
-class UserAndPassword extends StatefulWidget {
-  const UserAndPassword({super.key});
+class SignupForm extends StatefulWidget {
+  const SignupForm({super.key});
 
   @override
-  State<UserAndPassword> createState() => _UserAndPasswordState();
+  State<SignupForm> createState() => _SignupFormState();
 }
 
-class _UserAndPasswordState extends State<UserAndPassword> {
+class _SignupFormState extends State<SignupForm> {
   String? emailAddress, password;
-  login() async {
+  signUp() async {
     try {
-      final credential = await FirebaseAuth.instance.signInWithEmailAndPassword(
+      final credential =
+          await FirebaseAuth.instance.createUserWithEmailAndPassword(
         email: emailAddress!,
         password: password!,
       );
       if (credential.user != null) {
-        if (!context.mounted) return;
-        context.pushNamedAndRemoveUntil(
-            predicate: (rout) => false, Routes.homeScreen);
+        // ignore: use_build_context_synchronously
       }
     } on FirebaseAuthException catch (e) {
-      if (e.code == 'user-not-found') {
-        print('No user found for that email.');
-      } else if (e.code == 'wrong-password') {
-        print('Wrong password provided for that user.');
+      if (e.code == 'weak-password') {
+        print('The password provided is too weak.');
+      } else if (e.code == 'email-already-in-use') {
+        print('The account already exists for that email.');
       }
     } catch (e) {
       debugPrint(e.toString());
@@ -55,9 +52,23 @@ class _UserAndPasswordState extends State<UserAndPassword> {
         AppTextFormField(
           onChanged: (p0) => emailAddress = p0,
           hintText: 'Email Address',
+          prefixIcon: const Icon(Icons.email_outlined),
+        ),
+        verticalSpace(20.h),
+        Align(
+          alignment: Alignment.topLeft,
+          child: Text(
+            'User Name',
+            style: TextStyles.font14Medium,
+          ),
+        ),
+        verticalSpace(10.h),
+        AppTextFormField(
+          onChanged: (_) {},
+          hintText: 'Username',
           prefixIcon: const Icon(Icons.person_outline),
         ),
-        verticalSpace(30.h),
+        verticalSpace(20.h),
         Align(
           alignment: Alignment.topLeft,
           child: Text(
@@ -72,18 +83,10 @@ class _UserAndPasswordState extends State<UserAndPassword> {
           hintText: 'password',
           prefixIcon: const Icon(Icons.key_outlined),
         ),
-        verticalSpace(10.h),
-        Align(
-          alignment: Alignment.centerRight,
-          child: Text(
-            'Forgot Password?',
-            style: TextStyles.font14Medium,
-          ),
-        ),
-        verticalSpace(30.h),
+        verticalSpace(25.h),
         CustomTextBottom(
-          text: 'Login',
-          onTap: login,
+          text: 'Signup',
+          onTap: signUp,
         ),
       ],
     );

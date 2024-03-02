@@ -4,7 +4,10 @@ import 'package:my_authentication/core/helper/spase.dart';
 import 'package:my_authentication/core/theming/text_styles.dart';
 
 class LogoOfAnotherSignUp extends StatelessWidget {
-  const LogoOfAnotherSignUp({super.key});
+  const LogoOfAnotherSignUp(
+      {super.key, required this.text, required this.onPressed});
+  final String text;
+  final Function()? onPressed;
 
   @override
   Widget build(BuildContext context) {
@@ -34,7 +37,7 @@ class LogoOfAnotherSignUp extends StatelessWidget {
               ),
             ],
           ),
-          verticalSpace(30),
+          verticalSpace(20.h),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 90),
             child: Row(
@@ -51,15 +54,18 @@ class LogoOfAnotherSignUp extends StatelessWidget {
               ],
             ),
           ),
-          verticalSpace(20),
+          verticalSpace(10.h),
           Text(
             '\n Already have an account yet? ',
             style: TextStyles.font14Medium,
           ),
-          Text(
-            'Sign Up',
-            style: TextStyles.font14Medium
-                .copyWith(color: const Color(0xffB14A96)),
+          TextButton(
+            onPressed: onPressed,
+            child: Text(
+              text,
+              style: TextStyles.font14Medium
+                  .copyWith(color: const Color(0xffB14A96)),
+            ),
           ),
         ],
       ),

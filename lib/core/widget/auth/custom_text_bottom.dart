@@ -4,8 +4,9 @@ import 'package:my_authentication/core/theming/color.dart';
 import 'package:my_authentication/core/theming/text_styles.dart';
 
 class CustomTextBottom extends StatelessWidget {
-  const CustomTextBottom({super.key, this.onTap});
+  const CustomTextBottom({super.key, this.onTap, required this.text});
   final Function()? onTap;
+  final String text;
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +27,7 @@ class CustomTextBottom extends StatelessWidget {
         ),
         child: Center(
             child: Text(
-          'Login',
+          text,
           style: TextStyles.font18Medium,
         )),
       ),
